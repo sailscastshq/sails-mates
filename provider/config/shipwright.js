@@ -12,7 +12,6 @@ module.exports.shipwright = {
             exposes: {
               './counter': './assets/js/components/Counter.jsx',
             },
-            shared: ['react', 'react-dom'],
           }),
         ])
       },
