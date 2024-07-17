@@ -1,4 +1,4 @@
-import Counter from '@/components/Counter'
+import ProviderCounter from 'federation_provider/counter'
 import { Link } from '@inertiajs/react'
 
 export default function Index({ name }) {
@@ -9,7 +9,7 @@ export default function Index({ name }) {
         <span className="text-xl font-bold text-purple-400"> {name}</span> app
         on Sails
       </h1>
-      <Counter />
+      <ProviderCounter />
 
       <Link href="/example" className="text-purple-600 underline">
         Go to example page

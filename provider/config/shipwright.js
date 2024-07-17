@@ -10,7 +10,7 @@ module.exports.shipwright = {
           new ModuleFederationPlugin({
             name: 'federation_provider',
             exposes: {
-              './Counter': './assets/js/components/Counter.jsx',
+              './counter': './assets/js/components/Counter.jsx',
             },
             shared: ['react', 'react-dom'],
           }),
