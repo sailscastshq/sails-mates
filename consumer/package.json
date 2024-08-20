@@ -20,7 +20,10 @@
   },
   "devDependencies": {
     "@rsbuild/plugin-react": "^0.7.3",
+    "@rspack/cli": "^0.7.5",
+    "@rspack/core": "^0.7.5",
     "create-sails-generator": "^0.0.1",
+    "ignore-loader": "^0.1.2",
     "prettier": "^2.6.2",
     "prettier-plugin-tailwindcss": "^0.1.11",
     "sails-hook-shipwright": "^0.2.1",
@@ -30,6 +33,7 @@
   },
   "scripts": {
     "dev": "node app.js",
+    "build": "rspack build",
     "start": "NODE_ENV=production node app.js",
     "test": "npm run lint && npm run custom-tests && echo 'Done.'",
     "lint": "./node_modules/eslint/bin/eslint.js . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
