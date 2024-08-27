@@ -1,5 +1,6 @@
 const { pluginReact } = require('@rsbuild/plugin-react')
 const { ModuleFederationPlugin } = require('@module-federation/enhanced/rspack')
+const { NodeFederationPlugin } = require('@module-federation/node')
 const { dependencies } = require('../package.json')
 module.exports.shipwright = {
   build: {
@@ -30,6 +31,17 @@ module.exports.shipwright = {
             },
           }),
         ])
+        if (config.target === 'node') {
+          appendPlugins([
+            new NodeFederationPlugin({
+              name: 'federated_actions',
+              remotes: {
+                federated_actions:
+                  'federated_actions@http://localhost:1338/mf-manifest.json',
+              },
+            }),
+          ])
+        }
       },
     },
     plugins: [pluginReact()],

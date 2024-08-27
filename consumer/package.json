@@ -7,6 +7,7 @@
   "dependencies": {
     "@inertiajs/react": "^1.0.15",
     "@module-federation/enhanced": "^0.2.6",
+    "@module-federation/node": "^2.5.9",
     "@sailshq/connect-redis": "^3.2.1",
     "@sailshq/lodash": "^3.10.3",
     "@sailshq/socket.io-redis": "^5.2.0",

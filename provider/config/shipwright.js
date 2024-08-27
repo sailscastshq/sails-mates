@@ -1,9 +1,14 @@
 const { pluginReact } = require('@rsbuild/plugin-react')
 const { ModuleFederationPlugin } = require('@module-federation/enhanced/rspack')
+const { NodeFederationPlugin } = require('@module-federation/node')
 const { dependencies } = require('../package.json')
 
 module.exports.shipwright = {
   build: {
+    source: {
+      federatedActions: './assets/js/federated-actions.js',
+    },
+
     dev: {
       // It is necessary to configure assetPrefix, and in the production build, you need to configure output.assetPrefix
       assetPrefix: 'http://localhost:1338',
@@ -31,6 +36,20 @@ module.exports.shipwright = {
             },
           }),
         ])
+        if (config.target === 'node') {
+          appendPlugins([
+            new NodeFederationPlugin({
+              name: 'federated_actions',
+              library: {
+                type: 'commonjs-module',
+              },
+              exposes: {
+                './actions': './assets/js/federated-actions.js',
+              },
+              shared: ['sails'],
+            }),
+          ])
+        }
       },
     },
     plugins: [pluginReact()],
