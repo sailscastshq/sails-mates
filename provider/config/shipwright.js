@@ -39,7 +39,7 @@ module.exports.shipwright = {
         if (config.target === 'node') {
           appendPlugins([
             new NodeFederationPlugin({
-              name: 'federated_actions',
+              name: 'federated_provider',
               library: {
                 type: 'commonjs-module',
               },

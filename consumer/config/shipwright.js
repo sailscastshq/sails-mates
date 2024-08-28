@@ -34,10 +34,10 @@ module.exports.shipwright = {
         if (config.target === 'node') {
           appendPlugins([
             new NodeFederationPlugin({
-              name: 'federated_actions',
+              name: 'federated_provider',
               remotes: {
                 federated_actions:
-                  'federated_actions@http://localhost:1338/mf-manifest.json',
+                  'federated_provider@http://localhost:1338/mf-manifest.json',
               },
             }),
           ])
