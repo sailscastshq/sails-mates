@@ -6,7 +6,9 @@ const { dependencies } = require('../package.json')
 module.exports.shipwright = {
   build: {
     source: {
-      federatedActions: './assets/js/federated-actions.js',
+      entry: {
+        federatedActions: './assets/js/federated-actions.js',
+      },
     },
 
     dev: {
@@ -15,6 +17,10 @@ module.exports.shipwright = {
     },
     tools: {
       rspack: (config, { appendPlugins }) => {
+        if (config.entry.federatedActions) {
+          config.target = 'node'
+          config.externals = ['fs', 'path']
+        }
         config.output.uniqueName = 'federation_provider'
         config.publicPath = 'auto'
         appendPlugins([
