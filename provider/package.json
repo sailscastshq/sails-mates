@@ -6,8 +6,8 @@
   "keywords": [],
   "dependencies": {
     "@inertiajs/react": "^1.0.15",
-    "@module-federation/enhanced": "^0.2.6",
-    "@module-federation/node": "^2.5.9",
+    "@module-federation/enhanced": "^0.6.1",
+    "@module-federation/node": "^2.5.11",
     "@sailshq/connect-redis": "^3.2.1",
     "@sailshq/lodash": "^3.10.3",
     "@sailshq/socket.io-redis": "^5.2.0",
@@ -20,11 +20,11 @@
     "sails-hook-sockets": "^2.0.0"
   },
   "devDependencies": {
-    "@rsbuild/plugin-react": "^0.7.3",
+    "@rsbuild/plugin-react": "^1.0.1",
     "create-sails-generator": "^0.0.1",
     "prettier": "^2.6.2",
     "prettier-plugin-tailwindcss": "^0.1.11",
-    "sails-hook-shipwright": "^0.2.1",
+    "sails-hook-shipwright": "^0.3.0",
     "sails.io.js": "^1.2.1",
     "socket.io-client": "^2.2.0",
     "tailwindcss": "^3.0.24"

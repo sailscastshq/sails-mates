@@ -1,9 +1,10 @@
 const { pluginReact } = require('@rsbuild/plugin-react')
 const { ModuleFederationPlugin } = require('@module-federation/enhanced/rspack')
 const { NodeFederationPlugin } = require('@module-federation/node')
-
+const { dependencies } = require('../package.json')
 module.exports.shipwright = {
   build: {
+    plugins: [pluginReact()],
     environments: {
       web: {
         output: {
@@ -35,7 +36,7 @@ module.exports.shipwright = {
       node: {
         source: {
           entry: {
-            federatedActions: './assets/js/federated-actions.js',
+            federatedActions: './federated-actions.js',
           },
         },
         output: {
@@ -49,7 +50,7 @@ module.exports.shipwright = {
                 name: 'federation_provider',
                 library: { type: 'commonjs-module' },
                 exposes: {
-                  './actions': './assets/js/federated-actions.js',
+                  './actions': './dist/main.js',
                 },
                 shared: ['sails'],
               }),
@@ -59,5 +60,4 @@ module.exports.shipwright = {
       },
     },
   },
-  plugins: [pluginReact()],
 }
